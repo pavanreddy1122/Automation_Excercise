@@ -26,10 +26,15 @@ pipeline {
 
         stage('Execute UI Tests') {
             steps {
-                echo 'Executing Playwright test cases'
-                bat 'npx playwright test'
+                 script {
+                        if (params.TEST_TAG == 'ALL') {
+                             bat 'npx playwright test'
+                         } else {
+                            bat "npx playwright test --grep \"${params.TEST_TAG}\\b\""
+                        }
+                    }
             }
-        }
+         }
     }
 
     post {

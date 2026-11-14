@@ -1,6 +1,7 @@
 import {test , expect} from '../fixtures/loginFixture.ts';
 import {LoginPageWorkflow} from '../workflows/LoginPageWorkflow.ts'; 
-test.skip('login page ', async ({loggedInPage})=>{
+
+test('login page ', async ({loggedInPage})=>{
 await expect(loggedInPage.getByRole('link',{name:' Logout'})).toBeVisible();
 
 })
