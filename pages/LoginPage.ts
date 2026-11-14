@@ -37,7 +37,7 @@ export class LoginPage{
     }
 
     get verifyLogOutButton(){
-        return this.page.getByRole('link',{name:' Logout'});
+        return this.page.locator("//a[normalize-space(text())='Logout']");
     }
 
     get loginPageErrorMessage(){
